@@ -203,8 +203,8 @@ def State_Analyz(State_df):
 
 
 	#Training data
-	print(cluster_color)
-	print(cluster_index)
+	# print(cluster_color)
+	# print(cluster_index)
 
 	arr=DT_training_data_gen() 
 	#Placing the data array to data frame 
@@ -237,11 +237,11 @@ def State_Analyz(State_df):
 	District_Clusters={}
 	for district in unique_districts:
 		D_Tree_Pred=district_wise_pred(data_frame,district,D_Tree,cluster_index)
-		print(D_Tree_Pred)
+	
 		# index= np.where(cluster_index == D_Tree_Pred[0] )
 		index=D_Tree_Pred[0]
 		cluster_name= cluster_index_name[index]
-		print(cluster_name)
+
 		District_Clusters[district]=cluster_name
 
 
@@ -301,8 +301,7 @@ def Single_Crime_Analyz(State_df,crime):
 
 
 	#Training data
-	print(cluster_color)
-	print(cluster_index)
+
 
 	arr=DT_training_data_gen() 
 	#Placing the data array to data frame 
@@ -334,11 +333,11 @@ def Single_Crime_Analyz(State_df,crime):
 	District_Clusters={}
 	for district in unique_districts:
 		D_Tree_Pred=district_wise_pred(data_frame,district,D_Tree,cluster_index)
-		print(D_Tree_Pred)
+	
 		# index= np.where(cluster_index == D_Tree_Pred[0] )
 		index=D_Tree_Pred[0]
 		cluster_name= cluster_index_name[index]
-		print(cluster_name)
+	
 		District_Clusters[district]=cluster_name
 
 
@@ -454,13 +453,13 @@ def Regional_Analyz():
 	State_Clusters={}
 	for state in unique_states:
 		D_Tree_Pred=state_wise_pred(data_frame,state,D_Tree,cluster_index)
-		print(D_Tree_Pred)
+	
 		# index= np.where(cluster_index == D_Tree_Pred[0] )
 		index=D_Tree_Pred[0]
 		cluster_name= cluster_index_name[index]
 		State_Clusters[state]=cluster_name
 
-	print(State_Clusters)
+
 	return State_Clusters
 
 
@@ -477,7 +476,7 @@ def Regional_Analyz_for_Single_Crime(crime):
 
 
 
-	print(State_df)
+
 
 	#Removing the total row 
 	State_df=State_df[State_df.DISTRICT == "TOTAL"]
@@ -569,13 +568,13 @@ def Regional_Analyz_for_Single_Crime(crime):
 	State_Clusters={}
 	for state in unique_states:
 		D_Tree_Pred=state_wise_pred(data_frame,state,D_Tree,cluster_index)
-		print(D_Tree_Pred)
+
 		# index= np.where(cluster_index == D_Tree_Pred[0] )
 		index=D_Tree_Pred[0]
 		cluster_name= cluster_index_name[index]
 		State_Clusters[state]=cluster_name
 
-	print(State_Clusters)
+
 	return State_Clusters
 
 
@@ -674,7 +673,7 @@ def State_Year_Analyz(state):
 	
 
 	data_frame["TOTAL"]= data_frame.iloc[:,2:].sum(axis=1)
-	print(data_frame)
+
 
 	#Selecting the crime category column and converting to array
 	data_frame_with_year_and_total=data_frame.iloc[:,1:]
@@ -683,7 +682,7 @@ def State_Year_Analyz(state):
 	data_row=data_frame[:1,:]
 	crime_cat_len=len(data_row[0])
 
-	print(data_frame,crime_cat_len)
+
 
 
 
@@ -702,7 +701,7 @@ def State_Year_Analyz(state):
 
 
 
-	print(crime_col_avg,no_of_year)
+	
 	#Finding topmost and second topmost crime in the district
 	for i in range(0,2):
 	    col_index = np.argmax(crime_col_avg)
@@ -710,7 +709,7 @@ def State_Year_Analyz(state):
 	    crime_col_avg[col_index]=0
 
 
-	print(top_crime_col_index)
+
 	#filing the top,total and second top crime list on year basis
 	for i in range(0,no_of_year):
 	    year=data_frame_with_year_and_total[i][0]
@@ -877,7 +876,7 @@ def Regional_Analyz_Nassam():
 		cluster_name= cluster_index_name[index]
 		State_Clusters[state]=cluster_name
 
-	print(State_Clusters)
+
 	return State_Clusters
 
 
